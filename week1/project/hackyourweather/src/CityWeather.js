@@ -11,7 +11,7 @@ const CityWeather = () => {
         <h3>{city.weather[0].main}</h3>
         <p>{city.weather[0].description}</p>
       </div>
-      <div className="section" className="temp_loc">
+      <div className="section temp_loc">
         <p>Min_temp : {city.main.temp_min}</p>
         <p>Max_temp : {city.main.temp_max}</p>
         <p>
