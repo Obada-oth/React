@@ -1,0 +1,16 @@
+.dogContainer {
+  margin: 3rem auto;
+}
+.photosContainer {
+  width: 80%;
+  margin: 1rem auto;
+  border: 2px solid gray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.photo {
+  margin: 1rem;
+  max-width: 80%;
+}

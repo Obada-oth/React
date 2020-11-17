@@ -1,14 +1,14 @@
-import FriendProfile from "./FriendProfile";
 import { useState, useEffect } from "react";
-import Button from "./Button";
+import Joke from "./Joke";
 
-const Friend = () => {
-  const [friend, setFriend] = useState({});
+const RandomJoke = () => {
+  const [joke, setJoke] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const url = "https://www.randomuser.me/api?results1";
 
-  const getFriend = () => {
+  const url = "https://official-joke-api.appspot.com/random_joke";
+
+  useEffect(() => {
     setIsLoading(true);
     fetch(url)
       .then((res) => {
@@ -18,17 +18,17 @@ const Friend = () => {
           throw Error("Failed to fetch data");
         }
       })
-      .then((data) => {
-        setFriend(data.results[0]);
+      .then((joke) => {
+        setJoke(joke);
         setIsLoading(false);
+        console.log(joke);
       })
       .catch((error) => {
         setHasError(error);
         setIsLoading(false);
       });
-  };
+  }, []);
 
-  useEffect(getFriend, []);
   if (hasError) {
     return <p>{Error}</p>;
   }
@@ -36,16 +36,7 @@ const Friend = () => {
     return <p>Loading ...</p>;
   }
 
-  return (
-    <div>
-      <FriendProfile
-        friend={friend}
-        isLoading={isLoading}
-        hasError={hasError}
-      />
-      <Button getFriend={getFriend} />
-    </div>
-  );
+  return <Joke joke={joke} />;
 };
 
-export default Friend;
+export default RandomJoke;
