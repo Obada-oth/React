@@ -23,7 +23,6 @@ const DogGallery = () => {
       .then((data) => {
         setDogPhotos([...dogPhotos, data.message]);
         setIsLoading(false);
-        console.log(dogPhotos);
       })
       .catch((error) => {
         setHasError(error);
@@ -32,7 +31,7 @@ const DogGallery = () => {
   };
 
   if (hasError) {
-    return <p>{Error}</p>;
+    return <p>{hasError}</p>;
   }
   if (isLoading) {
     return <p>Loading ...</p>;

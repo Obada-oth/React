@@ -8,49 +8,46 @@ const WeatherCard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(null);
 
-  const url = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}
-  `;
-
-  const fetchWeatherData = (city) => {
-    console.log("fetch");
-    setIsLoading(true);
-    fetch(url)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw Error("Failed to fetch data");
-        }
-      })
-      .then((data) => {
-        // setDogPhotos([...dogPhotos, data.message]);
+  const fetchWeatherData = async (city) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
+    try {
+      setIsLoading(true);
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.cod !== 200) {
+        const error = new Error();
+        error.data = data;
         setIsLoading(false);
+        throw error;
+      } else {
         setCityWeather(data);
-
-        console.log(cityWeather);
-        console.log("fetch");
-      })
-      .catch((error) => {
-        setHasError(error);
         setIsLoading(false);
-      });
+      }
+    } catch (error) {
+      setHasError(error.data);
+      setIsLoading(false);
+    }
   };
-  // if (hasError) {
-  //   return <p>{hasError}</p>;
-  // }
-  // if (isLoading) {
-  //   return <p>Loading ...</p>;
-  // }
 
   return (
     <div>
-      <h1>Weather</h1>
+      <h1>Hack Your Weather</h1>
+
       <Search
         city={city}
         setCity={setCity}
         fetchWeatherData={fetchWeatherData}
       />
-      <CityWeather cityWeather={cityWeather} />
+
+      {hasError && (
+        <p>
+          {hasError.message} <br /> Please type in a valid city name
+        </p>
+      )}
+      {isLoading && <p>Loading...</p>}
+      {Object.keys(cityWeather).length > 0 && (
+        <CityWeather cityWeather={cityWeather} />
+      )}
     </div>
   );
 };
