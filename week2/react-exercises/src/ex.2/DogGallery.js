@@ -23,6 +23,7 @@ const DogGallery = () => {
       .then((data) => {
         setDogPhotos([...dogPhotos, data.message]);
         setIsLoading(false);
+        console.log(data);
       })
       .catch((error) => {
         setHasError(error);
