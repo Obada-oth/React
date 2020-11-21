@@ -1,5 +1,5 @@
 import Counter from "./Counter";
-const Count = (props) => {
-  return <h3>{props.count}</h3>;
+const Count = ({ count }) => {
+  return <h3>{count}</h3>;
 };
 export default Count;

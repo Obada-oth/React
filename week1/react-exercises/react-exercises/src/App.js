@@ -2,7 +2,6 @@ import "./App.css";
 import HobbyList from "./hobbies/HobbyList";
 import Guarantee from "./guarantee/Guarantee";
 import Counter from "./counter/Counter";
-import Count from "./counter/Count";
 
 function App() {
   return (

@@ -1,3 +1,4 @@
+import uuid from "react-uuid";
 const Guarantee = () => {
   const customerServiceInfo = [
     {
@@ -20,13 +21,15 @@ const Guarantee = () => {
     },
   ];
 
-  const customerServiceCards = customerServiceInfo.map((service, i) => (
-    <div className="service-card" key={i}>
-      <img src={service.img} alt="pic" />
-      <h2>{service.title}</h2>
-      <p>{service.description}</p>
-    </div>
-  ));
+  const customerServiceCards = customerServiceInfo.map(
+    ({ title, img, description }) => (
+      <div className="service-card" key={uuid()}>
+        <img src={img} alt="pic" />
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+    )
+  );
 
   return <div className="services-section">{customerServiceCards}</div>;
 };

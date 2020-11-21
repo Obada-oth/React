@@ -1,4 +1,5 @@
 import Hobbies from "./Hobbies";
+import uuid from "react-uuid";
 
 function HobbyList() {
   const hobbies = [
@@ -7,8 +8,8 @@ function HobbyList() {
     "Mountain biking",
     "Breakdancing",
   ];
-  const hobbiesList = hobbies.map((hobby, i) => (
-    <Hobbies hobby={hobby} key={("hobby", i)} />
+  const hobbiesList = hobbies.map((hobby) => (
+    <Hobbies hobby={hobby} key={uuid()} />
   ));
 
   return (

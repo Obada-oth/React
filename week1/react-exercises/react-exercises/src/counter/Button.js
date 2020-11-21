@@ -1,5 +1,5 @@
-const Button = (props) => {
-  return <button onClick={props.setCount}>ADD 1!</button>;
+const Button = ({ setCount }) => {
+  return <button onClick={setCount}>ADD 1!</button>;
 };
 
 export default Button;
