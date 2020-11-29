@@ -23,7 +23,6 @@ const DogGallery = () => {
       .then((data) => {
         setDogPhotos([...dogPhotos, data.message]);
         setIsLoading(false);
-        console.log(data);
       })
       .catch((error) => {
         setHasError(error);
@@ -43,8 +42,8 @@ const DogGallery = () => {
       <div className="photosContainer">
         {dogPhotos.length === 0 && <p>Get your first dog photo!</p>}
         {dogPhotos.length !== 0 &&
-          dogPhotos.map((dogPhoto, i) => (
-            <DogPhoto dogPhoto={dogPhoto} key={i} />
+          dogPhotos.map((dogPhoto) => (
+            <DogPhoto dogPhoto={dogPhoto} key={dogPhoto} />
           ))}
       </div>
       <div className="button">

@@ -22,6 +22,7 @@ const WeatherCard = () => {
       } else {
         setCityWeather(data);
         setIsLoading(false);
+        setHasError(false);
       }
     } catch (error) {
       setHasError(error.data);

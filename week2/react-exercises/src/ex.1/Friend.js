@@ -30,7 +30,7 @@ const Friend = () => {
 
   useEffect(getFriend, []);
   if (hasError) {
-    return <p>{Error}</p>;
+    return <p>{hasError}</p>;
   }
   if (isLoading) {
     return <p>Loading ...</p>;

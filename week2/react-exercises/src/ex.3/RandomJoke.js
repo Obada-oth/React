@@ -21,7 +21,6 @@ const RandomJoke = () => {
       .then((joke) => {
         setJoke(joke);
         setIsLoading(false);
-        console.log(joke);
       })
       .catch((error) => {
         setHasError(error);
@@ -30,7 +29,7 @@ const RandomJoke = () => {
   }, []);
 
   if (hasError) {
-    return <p>{Error}</p>;
+    return <p>{hasError}</p>;
   }
   if (isLoading) {
     return <p>Loading ...</p>;
