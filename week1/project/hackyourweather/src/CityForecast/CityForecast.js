@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useState, useEffect } from "react";
+import "./CityForecast.css";
 
 const CityForecast = () => {
   const { cityId } = useParams();
@@ -49,13 +50,10 @@ const CityForecast = () => {
               {cityForecast.city.name},{cityForecast.city.country}
             </h2>
             <Link to="/">
-              <button>Back</button>
+              <button className="back">Back</button>
             </Link>
-            <ResponsiveContainer width="80%" height={300} margin="auto">
-              <BarChart
-                data={cityForecast.list}
-                // margin={{ top: 5, right: 200, left: 200, bottom: 5 }}
-              >
+            <ResponsiveContainer width="80%" height={300} className="chart">
+              <BarChart data={cityForecast.list}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="dt_txt" />
                 <YAxis />
