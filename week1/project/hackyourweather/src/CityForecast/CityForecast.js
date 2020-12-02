@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import {
   BarChart,
@@ -48,10 +48,13 @@ const CityForecast = () => {
             <h2>
               {cityForecast.city.name},{cityForecast.city.country}
             </h2>
-            <ResponsiveContainer width="80%" height={300}>
+            <Link to="/">
+              <button>Back</button>
+            </Link>
+            <ResponsiveContainer width="80%" height={300} margin="auto">
               <BarChart
                 data={cityForecast.list}
-                margin={{ top: 5, right: 200, left: 200, bottom: 5 }}
+                // margin={{ top: 5, right: 200, left: 200, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="dt_txt" />
