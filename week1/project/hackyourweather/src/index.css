@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.card {
+  border: 2px black solid;
+  margin: 2rem auto;
+  width: 40%;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.section {
+  margin: 2rem auto;
+}
+.weather-and-icon {
+  display: flex;
+  justify-content: flex-start;
+}
+.delete {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.5rem;
+}
+.section p {
+  font-weight: 600;
+}
+.temp_loc p {
+  margin: 1rem auto;
+}

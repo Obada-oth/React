@@ -1,0 +1,18 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+.search-field {
+  margin: 0.3rem;
+}
+.search-field input {
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.search-button {
+  margin: 0.3rem;
+}
+.search-button button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+}
